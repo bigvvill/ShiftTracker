@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShiftTracker.Data;
 using ShiftTracker.Models;
+using ShiftTracker.Services;
 
 namespace ShiftTracker.Controllers
 {
@@ -52,6 +53,8 @@ namespace ShiftTracker.Controllers
                 return BadRequest();
             }
 
+            ShiftService shiftService = new();
+            shift = shiftService.CalculateTime(shift);
             _context.Entry(shift).State = EntityState.Modified;
 
             try
@@ -78,6 +81,8 @@ namespace ShiftTracker.Controllers
         [HttpPost]
         public async Task<ActionResult<Shift>> PostShift(Shift shift)
         {
+            ShiftService shiftService = new();
+            shift = shiftService.CalculateTime(shift);
             _context.Shifts.Add(shift);
             await _context.SaveChangesAsync();
 
