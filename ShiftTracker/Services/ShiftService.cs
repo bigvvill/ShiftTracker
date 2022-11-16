@@ -4,7 +4,7 @@ namespace ShiftTracker.Services
 {
     public class ShiftService
     {
-        public Shift CalculateTime(Shift shift)
+        public Shift CalculateTimeAndPay(Shift shift)
         {
             DateTime startShift = shift.Start;
             DateTime endShift = shift.End;

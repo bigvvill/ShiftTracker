@@ -54,7 +54,7 @@ namespace ShiftTracker.Controllers
             }
 
             ShiftService shiftService = new();
-            shift = shiftService.CalculateTime(shift);
+            shift = shiftService.CalculateTimeAndPay(shift);
             _context.Entry(shift).State = EntityState.Modified;
 
             try
@@ -82,7 +82,7 @@ namespace ShiftTracker.Controllers
         public async Task<ActionResult<Shift>> PostShift(Shift shift)
         {
             ShiftService shiftService = new();
-            shift = shiftService.CalculateTime(shift);
+            shift = shiftService.CalculateTimeAndPay(shift);
             _context.Shifts.Add(shift);
             await _context.SaveChangesAsync();
 
