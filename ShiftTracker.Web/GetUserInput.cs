@@ -30,9 +30,9 @@ namespace ShiftTracker.Web
                     Console.WriteLine("Goodbye!");
                     Environment.Exit(0);
                     break;
-                //case "1":
-                //    apiController.GetTopics("backgrounds");
-                //    break;
+                case "1":
+                    TimeEntry();
+                    break;
                 //case "2":
                 //    apiController.GetTopics("races");
                 //    break;
@@ -40,11 +40,99 @@ namespace ShiftTracker.Web
                 //    apiController.GetTopics("classes");
                 //    break;
                 default:
-                    Console.WriteLine("Please make a valid choice, 0-3! Press Enter...");
+                    Console.WriteLine("Please make a valid choice, 0-3!\nPress Enter...");
                     Console.ReadLine();
                     MainMenu();
                     break;
             }
+        }
+
+        public void TimeEntry()
+        {
+            Console.Clear();
+
+            Console.WriteLine("Time Entry");
+            Console.WriteLine("\nEnter start date in yyyy-mm-dd format (press Enter to use today as default or 0 to return to Menu):");
+            string startDate = Console.ReadLine();
+
+            if (startDate == "0")
+            {
+                MainMenu();
+            }
+            else if (startDate == "")
+            {
+                startDate = DateOnly.FromDateTime(DateTime.Now).ToString();
+                Console.WriteLine(startDate);
+            }          
+            
+            // TODO : Validate
+
+            Console.WriteLine("\nEnter start time in hh:mm:ss format (press Enter to use current time as default or 0 to return to Menu):");            
+            string startTime = Console.ReadLine();
+
+            if (startTime == "0")
+            {
+                MainMenu();
+            }
+            else if (startTime == "")
+            {
+                startTime = TimeOnly.FromDateTime(DateTime.Now).ToString();
+                TimeOnly startTimeOnly = TimeOnly.Parse(startTime);
+                TimeSpan startTimeSpan = startTimeOnly.ToTimeSpan();
+                Console.WriteLine(startTimeSpan);
+            }
+
+            // TODO : Validate
+
+            string startTimeString = $"{startDate} {startTime}";
+            DateTime shiftStart = DateTime.Parse(startTimeString);            
+            string sqlShiftStart = shiftStart.ToString("yyyy-MM-ddTHH:mm:ss");
+            //Console.WriteLine(sqlShiftStart);            
+
+            Console.WriteLine("\nEnter end date in yyyy-mm-dd format (press Enter to use today as default or 0 to return to Menu):");
+            string endDate = Console.ReadLine();
+
+            if (endDate == "0")
+            {
+                MainMenu();
+            }
+            else if (endDate == "")
+            {
+                endDate = DateOnly.FromDateTime(DateTime.Now).ToString();
+                Console.WriteLine(endDate);
+            }          
+            
+            // TODO : Validate
+
+            Console.WriteLine("\nEnter end time in hh:mm:ss format (press Enter to use current time as default or 0 to return to Menu):");   
+            string endTime = Console.ReadLine();
+
+            if (endTime == "0")
+            {
+                MainMenu();
+            }
+            else if (endTime == "")
+            {
+                endTime = TimeOnly.FromDateTime(DateTime.Now).ToString();
+                TimeOnly endTimeOnly = TimeOnly.Parse(endTime);
+                TimeSpan endTimeSpan = endTimeOnly.ToTimeSpan();
+                Console.WriteLine(endTimeSpan);
+            }
+
+            // TODO : Validate
+
+            string endTimeString = $"{endDate} {endTime}";
+            DateTime shiftEnd = DateTime.Parse(endTimeString);
+            string sqlShiftEnd = shiftEnd.ToString("yyyy-MM-ddTHH:mm:ss");
+            //Console.WriteLine(sqlShiftEnd);
+
+            Console.WriteLine("\nEnter hourly rate in dd.cc format or 0 to return to Menu:");
+            string hourlyRate = Console.ReadLine();
+
+            // TODO : Validate
+
+            ApiController apiController = new();
+            apiController.Post();
         }
     }
 }
