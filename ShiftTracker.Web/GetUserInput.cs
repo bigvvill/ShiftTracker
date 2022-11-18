@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShiftTracker.Web
+namespace ShiftTracker.Ui
 {
     public class GetUserInput
     {
@@ -63,11 +63,11 @@ namespace ShiftTracker.Web
             {
                 startDate = DateOnly.FromDateTime(DateTime.Now).ToString();
                 Console.WriteLine(startDate);
-            }          
-            
+            }
+
             // TODO : Validate
 
-            Console.WriteLine("\nEnter start time in hh:mm:ss format (press Enter to use current time as default or 0 to return to Menu):");            
+            Console.WriteLine("\nEnter start time in hh:mm:ss format (press Enter to use current time as default or 0 to return to Menu):");
             string startTime = Console.ReadLine();
 
             if (startTime == "0")
@@ -85,7 +85,7 @@ namespace ShiftTracker.Web
             // TODO : Validate
 
             string startTimeString = $"{startDate} {startTime}";
-            DateTime shiftStart = DateTime.Parse(startTimeString);            
+            DateTime shiftStart = DateTime.Parse(startTimeString);
             string sqlShiftStart = shiftStart.ToString("yyyy-MM-ddTHH:mm:ss");
             //Console.WriteLine(sqlShiftStart);            
 
@@ -100,11 +100,11 @@ namespace ShiftTracker.Web
             {
                 endDate = DateOnly.FromDateTime(DateTime.Now).ToString();
                 Console.WriteLine(endDate);
-            }          
-            
+            }
+
             // TODO : Validate
 
-            Console.WriteLine("\nEnter end time in hh:mm:ss format (press Enter to use current time as default or 0 to return to Menu):");   
+            Console.WriteLine("\nEnter end time in hh:mm:ss format (press Enter to use current time as default or 0 to return to Menu):");
             string endTime = Console.ReadLine();
 
             if (endTime == "0")

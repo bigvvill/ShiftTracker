@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShiftTracker.Web
+namespace ShiftTracker.Ui
 {
     internal class Validation
     {
@@ -13,14 +13,14 @@ namespace ShiftTracker.Web
             string[] dateFormat = { "yyyy-mm-dd" };
 
 
-            if (String.IsNullOrEmpty(stringInput) || stringInput.Length > 50)
+            if (string.IsNullOrEmpty(stringInput) || stringInput.Length > 50)
             {
                 return false;
             }
 
             foreach (char c in stringInput)
             {
-                if (!Char.IsLetter(c) && c != ' ')
+                if (!char.IsLetter(c) && c != ' ')
                     return false;
             }
 

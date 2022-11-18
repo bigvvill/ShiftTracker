@@ -1,4 +1,4 @@
-﻿namespace ShiftTracker.Web
+﻿namespace ShiftTracker.Ui
 {
     internal class ApiController
     {
