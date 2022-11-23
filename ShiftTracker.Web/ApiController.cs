@@ -25,16 +25,30 @@ namespace ShiftTracker.Ui
 
                 var repositories = await JsonSerializer.DeserializeAsync<List<ShiftRepository>>(stream);
 
+                List<Shift> shifts = new List<Shift>();
+
                 foreach (var repo in repositories)
                 {
-                    Console.WriteLine(repo.ShiftId);
-                    Console.WriteLine(repo.Start);
-                    Console.WriteLine(repo.End);
-                    Console.WriteLine(repo.Pay);
-                    Console.WriteLine(repo.Minutes);
-                    Console.WriteLine(repo.Location);
-                    Console.WriteLine();
+                    Shift currentShift = new();
+
+                    currentShift.ShiftId = repo.ShiftId;
+                    currentShift.Start = repo.Start;
+                    currentShift.End = repo.End;
+                    currentShift.Pay = repo.Pay;
+                    currentShift.Minutes = repo.Minutes;
+                    currentShift.Location = repo.Location;
+                    shifts.Add(currentShift);
+
+                    //Console.WriteLine(repo.ShiftId);
+                    //Console.WriteLine(repo.Start);
+                    //Console.WriteLine(repo.End);
+                    //Console.WriteLine(repo.Pay);
+                    //Console.WriteLine(repo.Minutes);
+                    //Console.WriteLine(repo.Location);
+                    //Console.WriteLine();
                 }
+
+                TableFormat.ShowTable<Shift>(shifts, "Shifts");
             }
 
             //var client = new RestClient("https://localhost:4071");
