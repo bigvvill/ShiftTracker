@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ShiftTracker.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,9 +34,10 @@ namespace ShiftTracker.Ui
                 case "1":
                     TimeEntry();
                     break;
-                //case "2":
-                //    apiController.GetTopics("races");
-                //    break;
+                case "2":
+                    apiController.GetShiftsAsync();
+                    Console.ReadLine();
+                    break;
                 //case "3":
                 //    apiController.GetTopics("classes");
                 //    break;
@@ -129,10 +131,33 @@ namespace ShiftTracker.Ui
             Console.WriteLine("\nEnter hourly rate in dd.cc format or 0 to return to Menu:");
             string hourlyRate = Console.ReadLine();
 
+            if (hourlyRate == "0")
+            {
+                MainMenu();
+            }
+
             // TODO : Validate
 
+            decimal sqlHourlyRate = decimal.Parse(hourlyRate);
+
+            Console.WriteLine("\nEnter location or 0 to return to Menu:");
+            string location = Console.ReadLine();
+
+            if (location == "0")
+            {
+                MainMenu();
+            }
+
+            // TODO : Validate
+
+            Shift currentShift = new Shift();
+            currentShift.Start = shiftStart;
+            currentShift.End= shiftEnd;
+            currentShift.Pay = sqlHourlyRate;
+            currentShift.Location = location;
+
             ApiController apiController = new();
-            apiController.Post();
+            apiController.Post(currentShift);
         }
     }
 }

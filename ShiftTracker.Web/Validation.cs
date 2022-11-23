@@ -13,7 +13,7 @@ namespace ShiftTracker.Ui
             string[] dateFormat = { "yyyy-mm-dd" };
 
 
-            if (string.IsNullOrEmpty(stringInput) || stringInput.Length > 50)
+            if (string.IsNullOrEmpty(stringInput) || stringInput.Length > 10)
             {
                 return false;
             }

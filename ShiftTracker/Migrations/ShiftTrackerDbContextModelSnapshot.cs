@@ -48,7 +48,7 @@ namespace ShiftTracker.Migrations
 
                     b.HasKey("ShiftId");
 
-                    b.ToTable("Shifts");
+                    b.ToTable("Shifts", (string)null);
                 });
 #pragma warning restore 612, 618
         }
