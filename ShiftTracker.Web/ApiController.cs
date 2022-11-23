@@ -12,10 +12,7 @@ namespace ShiftTracker.Ui
         internal async Task GetShiftsAsync()
         {
             using HttpClient client = new();
-            client.DefaultRequestHeaders.Accept.Clear();
-            //client.DefaultRequestHeaders.Accept.Add(
-            //    new MediaTypeWithQualityHeaderValue("application/vnd.github.v3+json"));
-            //client.DefaultRequestHeaders.Add("User-Agent", ".NET Foundation Repository Reporter");
+            client.DefaultRequestHeaders.Accept.Clear();            
 
             await ProcessRepositoriesAsync(client);
 
@@ -37,39 +34,11 @@ namespace ShiftTracker.Ui
                     currentShift.Pay = repo.Pay;
                     currentShift.Minutes = repo.Minutes;
                     currentShift.Location = repo.Location;
-                    shifts.Add(currentShift);
-
-                    //Console.WriteLine(repo.ShiftId);
-                    //Console.WriteLine(repo.Start);
-                    //Console.WriteLine(repo.End);
-                    //Console.WriteLine(repo.Pay);
-                    //Console.WriteLine(repo.Minutes);
-                    //Console.WriteLine(repo.Location);
-                    //Console.WriteLine();
+                    shifts.Add(currentShift);                   
                 }
 
                 TableFormat.ShowTable<Shift>(shifts, "Shifts");
             }
-
-            //var client = new RestClient("https://localhost:4071");
-            //var request = new RestRequest("/api/Shifts");
-            //var response = client.ExecuteAsync(request);
-
-            //List<GetShiftsDTO> shifts = new List<GetShiftsDTO>();
-
-            //if (response.Result.StatusCode == System.Net.HttpStatusCode.OK)
-            //{
-            //    string rawresponse = response.Result.Content;
-            //    var serialize = JsonConvert.DeserializeObject<GetShiftsDTO>(rawresponse);
-
-            //    shifts = serialize.ShiftList;
-
-            //    TableFormat.ShowTable(shifts, "Shifts");
-
-            //    Console.ReadLine();
-            //}
-
-
         }
 
 
