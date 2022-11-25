@@ -157,7 +157,7 @@ namespace ShiftTracker.Ui
             currentShift.Location = location;
 
             ApiController apiController = new();
-            apiController.Post(currentShift);
+            apiController.PostShiftsAsync(currentShift);
         }
     }
 }

@@ -11,11 +11,12 @@ namespace ShiftTracker.Services
             TimeSpan calculatedTime = endShift - startShift;
             decimal hours = calculatedTime.Hours;
             decimal minutes = calculatedTime.Minutes;
+            decimal payRate = shift.Pay;
 
             decimal calculatedMinutes = (hours * 60) + minutes;
 
             shift.Minutes= calculatedMinutes;
-            shift.Pay = (calculatedMinutes / 60) * 25.50m;
+            shift.Pay = (calculatedMinutes / 60) * payRate;
 
             return shift;
         }
