@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ShiftTracker.Models.Dtos;
 
-internal class ShiftToAddDto
+public class ShiftToAddDto
 {
     [Required]
     public DateTime Start { get; set; }
