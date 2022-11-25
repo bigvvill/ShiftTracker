@@ -1,4 +1,4 @@
-﻿using ShiftTracker.Models;
+﻿using ShiftTracker.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -157,7 +157,8 @@ namespace ShiftTracker.Ui
             currentShift.Location = location;
 
             ApiController apiController = new();
-            apiController.PostShiftsAsync(currentShift);
+            CancellationToken cancellationToken= new CancellationToken();
+            ApiController.PostBasicAsync(currentShift, cancellationToken);
         }
     }
 }

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShiftTracker.Api", "ShiftTr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShiftTracker.Ui", "ShiftTracker.Web\ShiftTracker.Ui.csproj", "{C120DC3D-6C06-4862-BC14-520B2F06FEC0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShiftTracker.Models", "ShiftTracker.Models\ShiftTracker.Models.csproj", "{C8B3FFC4-0AC3-4910-8CDF-25EAE9749B6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C120DC3D-6C06-4862-BC14-520B2F06FEC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C120DC3D-6C06-4862-BC14-520B2F06FEC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C120DC3D-6C06-4862-BC14-520B2F06FEC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B3FFC4-0AC3-4910-8CDF-25EAE9749B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B3FFC4-0AC3-4910-8CDF-25EAE9749B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B3FFC4-0AC3-4910-8CDF-25EAE9749B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B3FFC4-0AC3-4910-8CDF-25EAE9749B6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

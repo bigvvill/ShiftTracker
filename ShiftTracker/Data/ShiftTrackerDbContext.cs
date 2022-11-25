@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using ShiftTracker.Models;
+using ShiftTracker.Entities;
 
 namespace ShiftTracker.Data
 {

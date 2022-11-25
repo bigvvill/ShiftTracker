@@ -1,4 +1,4 @@
-﻿using ShiftTracker.Models;
+﻿using ShiftTracker.Entities;
 
 namespace ShiftTracker.Services
 {
